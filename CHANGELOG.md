@@ -6,6 +6,41 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 FEATURES:
 
+- the dotfiles moved out to hansohn/dotfiles and are cloned by
+  apps/dotfiles.sh rather than vendored in dotfiles/. Keeping two copies in
+  step by hand is how the previous set drifted eight months out of date, and
+  the configs are cross-platform, so they do not belong to a macOS setup
+  script. The extracted repo covers more than the seven files here did --
+  ghostty, k9s, bat, gh, ssh and terraform among them -- and its installer
+  archives anything real it replaces
+- apps/bash.sh, apps/vim.sh and apps/zsh.sh are gone. The dotfiles installer
+  is passed --bootstrap, which fetches oh-my-zsh, vim-plug and the vim
+  plugins those scripts handled, plus zsh-autosuggestions and
+  zsh-syntax-highlighting -- both named in the shipped .zshrc but never
+  installed by this repo
+- .bash_profile is not carried over. It was 186 lines of Intel-era paths,
+  anaconda, chefdk and dsc-cassandra, and was not installed on the machine
+  it shipped from
+- the neovim config is cloned straight to ~/.config/nvim. It used to be
+  cloned into ~/.dotfiles and symlinked, to survive the rsync install.sh ran
+  over that directory; that rsync is gone, and ~/.dotfiles is now the
+  dotfiles checkout, so a clone inside it would leave an untracked directory
+  in that repo. A pre-1.0 symlink is removed rather than followed
+- bootstrap.sh is renamed to install.sh, with the old name left as a shim
+  that warns and execs the new one. It will be removed after 1.0
+- identity no longer ships in the repo. config.sh is gitignored and
+  config.sh.example is the tracked template; install.sh refuses to run
+  without config.sh rather than writing a placeholder identity onto the
+  machine. preflight.sh and lib.sh come out of the installer into their own
+  files
+- the shared git configuration ships as a dotfile rather than being written
+  once with `git config --global` behind a guard that could only ever fire on
+  a fresh machine. Identity stays out of the tracked file, in
+  ~/.gitconfig.local, pulled in with [include]
+- ci runs on branches containing a slash. The push filter was '*', which
+  does not match '/', so branches like chore/thing only ever got a run from
+  the pull_request event
+
 - repository renamed from osx-setup to mac-setup. GitHub keeps a redirect, so
   existing clones and links continue to work
 - packages are declared in a Brewfile and installed with a single

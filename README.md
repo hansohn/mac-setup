@@ -61,18 +61,15 @@ make brew/dump      # regenerate the Brewfile from this machine
 
 ### Dotfiles
 
-`bootstrap.sh` copies [`dotfiles/`](dotfiles) into `~/.dotfiles` and symlinks these into `$HOME`:
+The dotfiles are their own repo, [hansohn/dotfiles](https://github.com/hansohn/dotfiles). `apps/dotfiles.sh` clones it to `~/.dotfiles` and runs its installer, which owns the linking. They were a vendored copy here until 1.0; keeping two copies in step by hand is how the previous set drifted eight months out of date, and the configs are cross-platform, so they do not belong to a macOS setup script.
 
-| Path | |
-|---|---|
-| `~/.zshrc` | shell |
-| `~/.bash_profile` | shell |
-| `~/.vimrc` | editor |
-| `~/.vim/plugins.vim` | vim-plug plugin list |
-| `~/.config/nvim` | LazyVim configuration |
-| `~/.config/tmux/tmux.conf` | tmux |
+It covers the shell (`~/.zshenv`, `~/.zprofile`, `~/.zshrc`), the editor (`~/.vimrc`, `~/.vim/plugins.vim`), git (`~/.gitconfig`, `~/.config/git/ignore`), and the configs for tmux, ghostty, k9s, bat, gh, ssh, terraform and more. See that repo for the full list.
 
-This is not optional and runs on every invocation. **Anything already at those paths is moved**, not merged, to `~/.dotfiles/bak/<YYYYMMDD>/` — so if you want a previous config back, that is where it is. Paths already symlinked are left alone, and anything the repo does not provide is skipped rather than linked to nothing.
+`--bootstrap` is passed, so it also fetches what those configs need in order to load: oh-my-zsh, `zsh-autosuggestions`, `zsh-syntax-highlighting`, vim-plug and the vim plugins.
+
+**Anything already at those paths is moved**, not merged, to a dated backup directory — so if you want a previous config back, that is where it is. Paths already symlinked are left alone.
+
+The neovim config is separate again: [hansohn/nvim](https://github.com/hansohn/nvim), cloned directly to `~/.config/nvim` by `apps/nvim.sh`.
 
 ### Color palettes
 

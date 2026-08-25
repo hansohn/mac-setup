@@ -21,62 +21,6 @@ source "${SCRIPTPATH}/lib.sh"
 # sourced rather than executed -- see the note at the top of preflight.sh
 source "${SCRIPTPATH}/preflight.sh"
 
-# ----- dotfiles -----
-
-dotfile_dir="${HOME}/.dotfiles"
-backup_dir="${dotfile_dir}/bak/$(date +%Y%m%d)"
-vim_dir="${HOME}/.vim"
-
-# .config/nvim is deliberately absent -- it is its own repo (hansohn/nvim) and
-# is cloned and linked by apps/nvim.sh
-dotfiles=(
-  '.bash_profile'
-  '.config/git/ignore'
-  '.config/tmux/tmux.conf'
-  '.gitconfig'
-  '.vimrc'
-  '.vim/plugins.vim'
-  '.zshrc'
-)
-
-# create dirs
-for dir in "${dotfile_dir}" "${backup_dir}" "${vim_dir}"; do
-  if [ ! -d "${dir}" ]; then
-    echo "==> Creating directory: ${dir}"
-    mkdir -p "${dir}"
-  fi
-done
-
-# copy dotfile contents
-echo "==> Populating dotfile directory"
-rsync -ah "${SCRIPTPATH}/dotfiles/" "${dotfile_dir}/"
-
-# manage dotfile
-for dotfile in "${dotfiles[@]}"; do
-  # skip anything the dotfiles directory does not actually provide, rather
-  # than linking it and leaving a dangling symlink behind
-  if [ ! -e "${dotfile_dir}/${dotfile}" ]; then
-    echo "==> Skipping: ${dotfile} (not present in ${dotfile_dir})"
-    continue
-  fi
-
-  # backup if not symlink -- -e rather than -f, so directory entries such as
-  # .config/nvim are archived too instead of being left in place
-  if [ -e "${HOME}/${dotfile}" ] && [ ! -L "${HOME}/${dotfile}" ]; then
-    echo "==> Archiving: ${HOME}/${dotfile} to ${backup_dir}"
-    mkdir -p "$(dirname "${backup_dir}/${dotfile}")"
-    mv "${HOME}/${dotfile}" "${backup_dir}/${dotfile}"
-  fi
-
-  # symlink -- -n so an existing directory is replaced rather than having the
-  # link created inside it
-  if [ ! -L "${HOME}/${dotfile}" ]; then
-    echo "==> Linking: ${dotfile_dir}/${dotfile} to ${HOME}/${dotfile}"
-    mkdir -p "$(dirname "${HOME}/${dotfile}")"
-    ln -sfn "${dotfile_dir}/${dotfile}" "${HOME}/${dotfile}"
-  fi
-done
-
 # ----- personalization -----
 
 source "${SCRIPTPATH}/customizations/system-settings.sh"
@@ -86,15 +30,14 @@ source "${SCRIPTPATH}/customizations/user-settings.sh"
 
 # list apps for customized install
 apps=(
-  "bash"
+  # first, so the shell and editor config is in place before anything reads it
+  "dotfiles"
   "git"
   "iterm2"
   "macos-terminal"
   "nvim"
   "rust"
   "vagrant"
-  "vim"
-  "zsh"
 )
 
 # install homebrew first -- everything below it depends on brew being present
