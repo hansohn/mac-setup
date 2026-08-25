@@ -8,8 +8,9 @@ source "${SCRIPTPATH}/../config.sh";
 
 # git comes from the Brewfile.
 #
-# The shared settings ship as dotfiles/.gitconfig and are symlinked by
-# install.sh, so they converge on every run. They used to be written here with
+# The shared settings live in hansohn/dotfiles as git/gitconfig and are
+# symlinked by its installer, so they converge on every run. They used to be
+# written here with
 # `git config --global` behind an `if [ ! -f ~/.gitconfig ]` guard, which meant
 # they landed once on a fresh machine and never again -- any setting added
 # later never reached a machine that already had a gitconfig.

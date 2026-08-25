@@ -1,5 +1,0 @@
-# Global gitignore, referenced by core.excludesfile in .gitconfig.
-# Patterns here apply to every repository on the machine.
-
-# claude code writes per-machine settings beside the shared ones
-**/.claude/settings.local.json
