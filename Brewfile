@@ -44,7 +44,6 @@ brew "wget"
 #-------------------------------------------------------------------------------
 
 brew "bash"
-brew "bash-completion"
 brew "zsh"
 brew "git"
 brew "lazygit"
@@ -79,7 +78,6 @@ brew "awscli"
 brew "cfn-lint"
 brew "doctl"
 brew "helm"
-brew "istioctl"
 brew "k9s"
 brew "kind"
 brew "kubectx"
@@ -183,6 +181,10 @@ mas "Kindle", id: 302584613
 # brew "packer"                         # superseded by hashicorp/tap/packer
 # brew "docker-completion"              # Docker Desktop ships its own
 # brew "kitchen-completion"             # chefdk era
+#
+# Reviewed and dropped:
+# brew "istioctl"                       # no service mesh work; never installed
+# brew "bash-completion"                # login shell is zsh; never installed
 #
 # Installed on the current machine but not wanted on a fresh one:
 # cask "google-gemini"

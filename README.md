@@ -24,7 +24,7 @@ Everything installable is declared in [`Brewfile`](Brewfile) — formulae, casks
 
 | Area | Tools |
 |---|---|
-| Cloud & Kubernetes | `awscli`, `aws-vault`, `doctl`, `gcloud-cli`, `helm`, `k9s`, `kind`, `kubernetes-cli`, `kubectx`, `kustomize`, `argocd`, `istioctl`, `eksctl`, `cfn-lint`, `session-manager-plugin` |
+| Cloud & Kubernetes | `awscli`, `aws-vault`, `doctl`, `gcloud-cli`, `helm`, `k9s`, `kind`, `kubernetes-cli`, `kubectx`, `kustomize`, `argocd`, `eksctl`, `cfn-lint`, `session-manager-plugin` |
 | Infrastructure as code | `terraform`, `terragrunt`, `terraform-docs`, `terraform-ls`, `tflint`, `tfsec`, `packer`, `vagrant`, `ansible`, `ansible-lint` |
 | Shell & editors | `zsh` with oh-my-zsh, `bash`, `neovim`, `macvim`, `tmux`, `git`, `lazygit`, `gh`, `tree-sitter` |
 | Search & files | `fzf`, `ripgrep`, `fd`, `bat`, `tree`, `grep`, `jq`, `curl`, `wget`, `1password-cli` |
