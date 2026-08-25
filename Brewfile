@@ -44,7 +44,6 @@ brew "wget"
 #-------------------------------------------------------------------------------
 
 brew "bash"
-brew "bash-completion"
 brew "zsh"
 brew "git"
 brew "lazygit"
@@ -185,6 +184,7 @@ mas "Kindle", id: 302584613
 #
 # Reviewed and dropped:
 # brew "istioctl"                       # no service mesh work; never installed
+# brew "bash-completion"                # login shell is zsh; never installed
 #
 # Installed on the current machine but not wanted on a fresh one:
 # cask "google-gemini"
