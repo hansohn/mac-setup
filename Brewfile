@@ -167,7 +167,7 @@ cask "zoom"
 
 mas "Amphetamine", id: 937984704
 mas "Decompressor", id: 1033480833
-mas "iMazing HEIC Converter", id: 1292198261
+mas "iMazing Converter", id: 1292198261
 mas "Kindle", id: 302584613
 
 #-------------------------------------------------------------------------------
