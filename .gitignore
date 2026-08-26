@@ -96,6 +96,8 @@ tags
 # config.sh.example is the tracked template; copy it to config.sh and edit that.
 config.sh
 
-# machine-specific package lists -- never commit these
+# machine-specific settings -- never commit these. Profile overlays
+# (Brewfile.work, Brewfile.personal) are tracked on purpose: they are what
+# makes a work or personal machine reproducible on the next one.
 Brewfile.local
-Brewfile.work
+customizations/local.sh

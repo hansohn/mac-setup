@@ -50,6 +50,32 @@ source "${SCRIPTPATH}/apps/homebrew.sh"
 echo "==> Installing packages from Brewfile"
 brew bundle install --file="${SCRIPTPATH}/Brewfile"
 
+# Optional overlays, both additive on top of the base list above.
+#
+#   Brewfile.<profile>  tracked, selected by PROFILE in config.sh. What every
+#                       machine of that kind should have, so a replacement
+#                       laptop reproduces from the repo.
+#   Brewfile.local      gitignored, this machine only. Applied last so a
+#                       one-off always wins.
+#
+# Deliberately separate `brew bundle install` calls rather than conditionals
+# inside the Brewfile: the Brewfile is evaluated as ruby, but neither that nor
+# which environment variables survive homebrew's scrubbing is documented, and
+# a change to either would fail silently by installing the wrong set.
+# A named profile that has no file is almost always a typo in config.sh, so say
+# so. Brewfile.local is genuinely optional and stays quiet when absent.
+if [ -n "${PROFILE:-}" ] && [ ! -f "${SCRIPTPATH}/Brewfile.${PROFILE}" ]; then
+  echo "==> Warning: PROFILE is '${PROFILE}' but ${SCRIPTPATH}/Brewfile.${PROFILE} does not exist" >&2
+fi
+
+for overlay in "${PROFILE:-}" local; do
+  [ -n "${overlay}" ] || continue
+  overlay_file="${SCRIPTPATH}/Brewfile.${overlay}"
+  [ -f "${overlay_file}" ] || continue
+  echo "==> Installing packages from Brewfile.${overlay}"
+  brew bundle install --file="${overlay_file}"
+done
+
 # configure applications
 # these run after brew bundle because several of them configure an application
 # that brew bundle is what installs

@@ -57,6 +57,28 @@ make brew/drift     # installed but NOT declared
 make brew/dump      # regenerate the Brewfile from this machine
 ```
 
+### Profiles
+
+The base [`Brewfile`](Brewfile) is what every machine gets. Two optional
+overlays install on top of it:
+
+| file | tracked | applies to |
+|---|---|---|
+| `Brewfile.work` | yes | every machine the employer owns |
+| `Brewfile.personal` | yes | every machine you own |
+| `Brewfile.local` | **no** | this one machine |
+
+Set `PROFILE="work"` or `PROFILE="personal"` in `config.sh` to select one.
+`Brewfile.local` needs no setting — it is applied last whenever it exists, so a
+one-off always wins over the profile.
+
+The profile files are tracked deliberately. They are what makes a replacement
+laptop reproduce from the repo rather than from memory. `Brewfile.local` is
+gitignored, because by definition it suits nothing but the machine it is on.
+
+The test for which to use: *if this laptop died tomorrow, would I want this on
+the replacement?* Yes means a profile, no means `Brewfile.local`.
+
 `make brew/drift` is the one worth running periodically. It answers "what did I install months ago and never write down" — which is how the previous hand-maintained list fell years out of date.
 
 ### Dotfiles

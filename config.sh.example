@@ -24,6 +24,18 @@ TIMESERVER="time.nist.gov";
 GIT_USER_NAME="Foo Bar";
 GIT_USER_EMAIL="foo.bar@users.noreply.github.com";
 
+# ----- profile -----
+# Selects an optional Brewfile.<profile> overlay, installed on top of the base
+# Brewfile. Tracked in the repo, so a replacement machine of the same kind
+# reproduces from it. Leave empty for none.
+#
+#   work      machines the employer owns
+#   personal  machines you own
+#
+# Anything that suits only this one machine belongs in Brewfile.local, which is
+# gitignored and applied after the profile regardless of what this is set to.
+PROFILE="";
+
 # ----- feature flags -----
 # Opt-in toggles. Parsed by is_enabled() in lib.sh, so true/yes/on/1 all enable,
 # in any case. Anything else is off.

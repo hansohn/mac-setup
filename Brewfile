@@ -147,8 +147,6 @@ cask "zulu@21"                          # os/darwin.zsh derives JAVA_HOME from i
 cask "1password"
 cask "adobe-acrobat-reader"
 cask "appcleaner"
-cask "chatgpt"
-cask "discord"
 cask "firefox"
 cask "google-chrome"
 cask "google-drive"
@@ -156,9 +154,7 @@ cask "microsoft-teams"
 cask "obsidian"
 cask "raycast"
 cask "rectangle"
-cask "signal"
 cask "slack"
-cask "spotify"
 cask "zoom"
 
 #-------------------------------------------------------------------------------
@@ -168,7 +164,6 @@ cask "zoom"
 mas "Amphetamine", id: 937984704
 mas "Decompressor", id: 1033480833
 mas "iMazing Converter", id: 1292198261
-mas "Kindle", id: 302584613
 
 #-------------------------------------------------------------------------------
 # declined
