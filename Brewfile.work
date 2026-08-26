@@ -1,0 +1,26 @@
+#-------------------------------------------------------------------------------
+# work profile
+#-------------------------------------------------------------------------------
+# Installed on top of the base Brewfile when PROFILE="work" in config.sh.
+# Tracked, so a replacement work machine reproduces from here.
+#
+# Candidates below came from a comparison run on the work laptop: installed
+# there, declared nowhere. They are commented out rather than enabled because
+# they have not been confirmed as wanted -- uncomment what belongs.
+#
+# Note that several apps on a managed machine arrive via MDM rather than brew
+# (Slack, Teams, Chrome, VS Code, Docker Desktop). Declaring those here would
+# make brew bundle install a duplicate on top of the managed copy.
+#-------------------------------------------------------------------------------
+
+# source control / issues
+# brew "glab"                           # gitlab cli
+# brew "jira-cli"
+# brew "src-cli"                        # sourcegraph
+
+# build / secrets
+# brew "bazel"
+# brew "vault"
+
+# utilities
+# brew "yq"

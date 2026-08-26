@@ -76,14 +76,12 @@ brew "argocd"
 brew "aws-vault"
 brew "awscli"
 brew "cfn-lint"
-brew "doctl"
 brew "helm"
 brew "k9s"
 brew "kind"
 brew "kubectx"
 brew "kubernetes-cli"
 brew "kustomize"
-brew "eksctl"
 
 #-------------------------------------------------------------------------------
 # infrastructure as code
@@ -92,7 +90,6 @@ brew "eksctl"
 brew "ansible"
 brew "ansible-lint"
 brew "hashicorp/tap/terraform"
-brew "hashicorp/tap/packer"
 brew "terraform-docs"
 brew "terraform-ls"
 brew "terragrunt"
@@ -106,6 +103,7 @@ brew "jsonlint"
 brew "selene"
 brew "shellcheck"
 brew "stylua"
+brew "yamlfmt"
 brew "yamllint"
 
 #-------------------------------------------------------------------------------
@@ -148,7 +146,6 @@ cask "1password"
 cask "adobe-acrobat-reader"
 cask "appcleaner"
 cask "chatgpt"
-cask "discord"
 cask "firefox"
 cask "google-chrome"
 cask "google-drive"
@@ -156,7 +153,6 @@ cask "microsoft-teams"
 cask "obsidian"
 cask "raycast"
 cask "rectangle"
-cask "signal"
 cask "slack"
 cask "spotify"
 cask "zoom"
@@ -168,32 +164,3 @@ cask "zoom"
 mas "Amphetamine", id: 937984704
 mas "Decompressor", id: 1033480833
 mas "iMazing Converter", id: 1292198261
-mas "Kindle", id: 302584613
-
-#-------------------------------------------------------------------------------
-# declined
-#-------------------------------------------------------------------------------
-# Reviewed and deliberately not installed. Kept as a record so they are not
-# rediscovered and re-litigated on the next pass.
-#
-# From osx-setup/apps/*.sh:
-# brew "hadoop"                         # the zshrc block for it is dead
-# brew "packer"                         # superseded by hashicorp/tap/packer
-# brew "docker-completion"              # Docker Desktop ships its own
-# brew "kitchen-completion"             # chefdk era
-#
-# Reviewed and dropped:
-# brew "istioctl"                       # no service mesh work; never installed
-# brew "bash-completion"                # login shell is zsh; never installed
-#
-# Installed on the current machine but not wanted on a fresh one:
-# cask "google-gemini"
-# cask "tor-browser"
-# cask "ubiquiti-unifi-controller"
-#
-# Dropped during review:
-# cask "font-iosevka-nerd-font"        # ghostty asks only for Hack Nerd Font
-# cask "font-jetbrains-mono-nerd-font" # same
-# brew "yamlfmt"                       # nothing references it; yamllint covers linting
-# tap "warrensbox/tap"                  # tfswitch removed
-# cask "brooklyn"

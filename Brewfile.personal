@@ -1,0 +1,28 @@
+#-------------------------------------------------------------------------------
+# personal profile
+#-------------------------------------------------------------------------------
+# Installed on top of the base Brewfile when PROFILE="personal" in config.sh.
+# Tracked, so a replacement personal machine reproduces from here.
+#
+# What belongs here: anything you want on every machine you own, and would not
+# want installed on an employer-managed one. Anything that suits only a single
+# machine belongs in Brewfile.local instead, which is gitignored.
+#-------------------------------------------------------------------------------
+
+# cloud
+brew "doctl"                            # digitalocean
+
+# infrastructure
+# the hashicorp/tap tap is declared in the base Brewfile, which terraform needs
+brew "hashicorp/tap/packer"
+
+# home network / privacy
+cask "tor-browser"
+cask "ubiquiti-unifi-controller"
+
+# communication
+cask "discord"
+cask "signal"
+
+# media
+mas "Kindle", id: 302584613
