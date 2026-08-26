@@ -14,8 +14,4 @@ cask "discord"
 cask "signal"
 
 # media
-cask "spotify"
 mas "Kindle", id: 302584613
-
-# ai
-cask "chatgpt"

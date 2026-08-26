@@ -79,6 +79,11 @@ gitignored, because by definition it suits nothing but the machine it is on.
 The test for which to use: *if this laptop died tomorrow, would I want this on
 the replacement?* Yes means a profile, no means `Brewfile.local`.
 
+The base list stays deliberately broad. Only things that would be unwelcome on
+an employer-managed machine are split out, which today is Discord, Signal and
+Kindle. Spotify and ChatGPT sit in the base list because they are wanted on
+both.
+
 `make brew/drift` is the one worth running periodically. It answers "what did I install months ago and never write down" — which is how the previous hand-maintained list fell years out of date.
 
 ### Dotfiles

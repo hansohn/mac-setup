@@ -147,6 +147,7 @@ cask "zulu@21"                          # os/darwin.zsh derives JAVA_HOME from i
 cask "1password"
 cask "adobe-acrobat-reader"
 cask "appcleaner"
+cask "chatgpt"
 cask "firefox"
 cask "google-chrome"
 cask "google-drive"
@@ -155,6 +156,7 @@ cask "obsidian"
 cask "raycast"
 cask "rectangle"
 cask "slack"
+cask "spotify"
 cask "zoom"
 
 #-------------------------------------------------------------------------------
