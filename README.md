@@ -24,7 +24,7 @@ Everything installable is declared in [`Brewfile`](Brewfile) — formulae, casks
 
 | Area | Tools |
 |---|---|
-| Cloud & Kubernetes | `awscli`, `aws-vault`, `doctl`, `gcloud-cli`, `helm`, `k9s`, `kind`, `kubernetes-cli`, `kubectx`, `kustomize`, `argocd`, `eksctl`, `cfn-lint`, `session-manager-plugin` |
+| Cloud & Kubernetes | `awscli`, `aws-vault`, `gcloud-cli`, `helm`, `k9s`, `kind`, `kubernetes-cli`, `kubectx`, `kustomize`, `argocd`, `cfn-lint`, `session-manager-plugin` |
 | Infrastructure as code | `terraform`, `terragrunt`, `terraform-docs`, `terraform-ls`, `tflint`, `tfsec`, `packer`, `vagrant`, `ansible`, `ansible-lint` |
 | Shell & editors | `zsh` with oh-my-zsh, `bash`, `neovim`, `macvim`, `tmux`, `git`, `lazygit`, `gh`, `tree-sitter` |
 | Search & files | `fzf`, `ripgrep`, `fd`, `bat`, `tree`, `grep`, `jq`, `curl`, `wget`, `1password-cli` |
@@ -80,9 +80,10 @@ The test for which to use: *if this laptop died tomorrow, would I want this on
 the replacement?* Yes means a profile, no means `Brewfile.local`.
 
 The base list stays deliberately broad. Only things that would be unwelcome on
-an employer-managed machine are split out, which today is Discord, Signal and
-Kindle. Spotify and ChatGPT sit in the base list because they are wanted on
-both.
+an employer-managed machine, or that serve a personal account, are split out.
+`Brewfile.personal` currently holds `doctl` for DigitalOcean, plus Discord,
+Signal and Kindle. Spotify and ChatGPT sit in the base list because they are
+wanted on both.
 
 `make brew/drift` is the one worth running periodically. It answers "what did I install months ago and never write down" — which is how the previous hand-maintained list fell years out of date.
 

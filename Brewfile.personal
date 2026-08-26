@@ -9,6 +9,9 @@
 # machine belongs in Brewfile.local instead, which is gitignored.
 #-------------------------------------------------------------------------------
 
+# cloud
+brew "doctl"                            # digitalocean
+
 # communication
 cask "discord"
 cask "signal"

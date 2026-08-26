@@ -76,14 +76,12 @@ brew "argocd"
 brew "aws-vault"
 brew "awscli"
 brew "cfn-lint"
-brew "doctl"
 brew "helm"
 brew "k9s"
 brew "kind"
 brew "kubectx"
 brew "kubernetes-cli"
 brew "kustomize"
-brew "eksctl"
 
 #-------------------------------------------------------------------------------
 # infrastructure as code
@@ -182,6 +180,7 @@ mas "iMazing Converter", id: 1292198261
 # Reviewed and dropped:
 # brew "istioctl"                       # no service mesh work; never installed
 # brew "bash-completion"                # login shell is zsh; never installed
+# brew "eksctl"                        # no EKS work
 #
 # Installed on the current machine but not wanted on a fresh one:
 # cask "google-gemini"
