@@ -4,7 +4,30 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased](unreleased)
 
+## [1.0.0](https://github.com/hansohn/mac-setup/compare/0.9.0..1.0.0) (Aug 26, 2026)
+
 FEATURES:
+
+- the package list splits into profiles. Brewfile is the shared baseline;
+  Brewfile.work and Brewfile.personal are tracked overlays selected by PROFILE
+  in config.sh; Brewfile.local is gitignored and applied last, for one machine
+  only. Previously a single list meant a work machine got Discord, Signal and
+  the rest along with everything else. Implemented as separate `brew bundle
+  install` calls rather than conditionals inside the Brewfile -- the Brewfile
+  is evaluated as ruby and conditionals do work, but neither that nor which
+  environment variables survive homebrew's scrubbing is documented, and a
+  change to either would fail silently by installing the wrong set
+- moved to Brewfile.personal: doctl, hashicorp/tap/packer, tor-browser,
+  ubiquiti-unifi-controller, discord, signal and Kindle. The hashicorp tap
+  declaration stays in the base list, since terraform needs it there
+- yamlfmt is declared and wired up. yaml was linted but never formatted:
+  yamllint reported that indentation was wrong and nothing fixed it. yaml is
+  the filetype this repo is built around, and was the only one in the neovim
+  config with no formatter attached while markdown had three
+- dropped for good: istioctl, bash-completion and eksctl, along with the
+  declined block itself. Everything it recorded has been settled
+- corrected the iMazing app name, which upstream renamed. mas matches on the
+  id, so this was cosmetic
 
 - the dotfiles moved out to hansohn/dotfiles and are cloned by
   apps/dotfiles.sh rather than vendored in dotfiles/. Keeping two copies in
