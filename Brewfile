@@ -103,6 +103,7 @@ brew "jsonlint"
 brew "selene"
 brew "shellcheck"
 brew "stylua"
+brew "yamlfmt"
 brew "yamllint"
 
 #-------------------------------------------------------------------------------
@@ -169,5 +170,7 @@ mas "iMazing Converter", id: 1292198261
 #-------------------------------------------------------------------------------
 # Reviewed and deliberately not installed. Kept as a record so they are not
 # rediscovered and re-litigated on the next pass.
+#
+# Currently empty: everything previously listed here has been settled, and
+# yamlfmt was promoted to a real declaration above.
 
-# brew "yamlfmt"                        # nothing references it; yamllint covers linting
