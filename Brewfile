@@ -164,13 +164,3 @@ cask "zoom"
 mas "Amphetamine", id: 937984704
 mas "Decompressor", id: 1033480833
 mas "iMazing Converter", id: 1292198261
-
-#-------------------------------------------------------------------------------
-# declined
-#-------------------------------------------------------------------------------
-# Reviewed and deliberately not installed. Kept as a record so they are not
-# rediscovered and re-litigated on the next pass.
-#
-# Currently empty: everything previously listed here has been settled, and
-# yamlfmt was promoted to a real declaration above.
-
