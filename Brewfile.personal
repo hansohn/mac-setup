@@ -12,6 +12,14 @@
 # cloud
 brew "doctl"                            # digitalocean
 
+# infrastructure
+# the hashicorp/tap tap is declared in the base Brewfile, which terraform needs
+brew "hashicorp/tap/packer"
+
+# home network / privacy
+cask "tor-browser"
+cask "ubiquiti-unifi-controller"
+
 # communication
 cask "discord"
 cask "signal"

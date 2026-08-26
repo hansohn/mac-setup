@@ -90,7 +90,6 @@ brew "kustomize"
 brew "ansible"
 brew "ansible-lint"
 brew "hashicorp/tap/terraform"
-brew "hashicorp/tap/packer"
 brew "terraform-docs"
 brew "terraform-ls"
 brew "terragrunt"
@@ -173,7 +172,8 @@ mas "iMazing Converter", id: 1292198261
 #
 # From osx-setup/apps/*.sh:
 # brew "hadoop"                         # the zshrc block for it is dead
-# brew "packer"                         # superseded by hashicorp/tap/packer
+# brew "packer"                         # superseded by hashicorp/tap/packer,
+#                                       # which now lives in Brewfile.personal
 # brew "docker-completion"              # Docker Desktop ships its own
 # brew "kitchen-completion"             # chefdk era
 #
@@ -184,8 +184,6 @@ mas "iMazing Converter", id: 1292198261
 #
 # Installed on the current machine but not wanted on a fresh one:
 # cask "google-gemini"
-# cask "tor-browser"
-# cask "ubiquiti-unifi-controller"
 #
 # Dropped during review:
 # cask "font-iosevka-nerd-font"        # ghostty asks only for Hack Nerd Font

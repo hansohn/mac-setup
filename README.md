@@ -81,9 +81,10 @@ the replacement?* Yes means a profile, no means `Brewfile.local`.
 
 The base list stays deliberately broad. Only things that would be unwelcome on
 an employer-managed machine, or that serve a personal account, are split out.
-`Brewfile.personal` currently holds `doctl` for DigitalOcean, plus Discord,
-Signal and Kindle. Spotify and ChatGPT sit in the base list because they are
-wanted on both.
+`Brewfile.personal` currently holds `doctl` and `packer`, the Tor Browser and
+the UniFi controller, plus Discord, Signal and Kindle. Spotify and ChatGPT sit
+in the base list because they are wanted on both, as do Obsidian and Acrobat
+Reader.
 
 `make brew/drift` is the one worth running periodically. It answers "what did I install months ago and never write down" — which is how the previous hand-maintained list fell years out of date.
 
