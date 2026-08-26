@@ -170,6 +170,7 @@ mas "iMazing Converter", id: 1292198261
 # Reviewed and deliberately not installed. Kept as a record so they are not
 # rediscovered and re-litigated on the next pass.
 
-# brew "packer"                         # superseded by hashicorp/tap/packer,
-#                                       # which now lives in Brewfile.personal
+# The homebrew-core "packer" formula, not hashicorp's. Do not re-add it: the
+# tap build supersedes it, and is declared in Brewfile.personal.
+# brew "packer"
 # brew "yamlfmt"                        # nothing references it; yamllint covers linting
