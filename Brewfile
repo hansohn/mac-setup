@@ -169,25 +169,7 @@ mas "iMazing Converter", id: 1292198261
 #-------------------------------------------------------------------------------
 # Reviewed and deliberately not installed. Kept as a record so they are not
 # rediscovered and re-litigated on the next pass.
-#
-# From osx-setup/apps/*.sh:
-# brew "hadoop"                         # the zshrc block for it is dead
+
 # brew "packer"                         # superseded by hashicorp/tap/packer,
 #                                       # which now lives in Brewfile.personal
-# brew "docker-completion"              # Docker Desktop ships its own
-# brew "kitchen-completion"             # chefdk era
-#
-# Reviewed and dropped:
-# brew "istioctl"                       # no service mesh work; never installed
-# brew "bash-completion"                # login shell is zsh; never installed
-# brew "eksctl"                        # no EKS work
-#
-# Installed on the current machine but not wanted on a fresh one:
-# cask "google-gemini"
-#
-# Dropped during review:
-# cask "font-iosevka-nerd-font"        # ghostty asks only for Hack Nerd Font
-# cask "font-jetbrains-mono-nerd-font" # same
-# brew "yamlfmt"                       # nothing references it; yamllint covers linting
-# tap "warrensbox/tap"                  # tfswitch removed
-# cask "brooklyn"
+# brew "yamlfmt"                        # nothing references it; yamllint covers linting
